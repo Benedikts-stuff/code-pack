@@ -34,6 +34,6 @@ You can specifiy the directory to pack, e.g. `pack /path/to/your/project` to pac
 
 ## What it does
 
-- The tool generates a llm_context.md file in your current directory.
+- The tool generates a packed.md file in your current directory.
 - It automatically builds a clean ASCII file tree and appends all file contents, respecting your .gitignore rules at every directory level.
 - The entire output is instantly copied to your clipboard, e.g. for usage with Chat based LLMs.

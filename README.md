@@ -11,7 +11,7 @@ pip install pathspec pyinstaller
 Build a standalone executable using PyInstaller:
 
 ```bash
-pyinstaller --onefile pack_codebase.py --name pack
+pyinstaller --onefile pack.py --name pack
 ```
 
 **3. Make it globally available**
@@ -33,4 +33,3 @@ pack
 - The tool generates a llm_context.md file in your current directory.
 - It automatically builds a clean ASCII file tree and appends all file contents, respecting your .gitignore rules at every directory level.
 - The entire output is instantly copied to your clipboard, e.g. for usage with Chat based LLMs.
-

@@ -52,8 +52,6 @@ IGNORE_EXTS = {
     ".sqlite",
     ".db",
     ".lock",
-    ".md",
-    ".txt",
     ".yaml",
     ".json",
 }

@@ -52,6 +52,8 @@ def get_gitignore_spec(dir_path: Path):
 def ignore(path: Path, base_dir: Path) -> bool:
     if path.name.startswith("."):
         return True
+    if "pack.md" == path.name:
+        return True
     if path.is_dir() and path.name in IGNORE_DIRS:
         return True
     if path.is_file() and path.suffix.lower() in IGNORE_EXTS:
@@ -140,9 +142,9 @@ def generate_markdown(base_dir_path: str, output_file: str) -> None:
                         file_content = in_f.read()
 
                     content_lines.append(f"### File: `{relative_path}`\n")
-                    content_lines.append(f"```{file_ext}")
+                    content_lines.append(f"````{file_ext}")
                     content_lines.append(file_content)
-                    content_lines.append("```\n")
+                    content_lines.append("````\n")
 
                 except UnicodeDecodeError:
                     print(f"Skip {relative_path}")

@@ -28,6 +28,10 @@ Simply navigate to any of your project directories in your terminal and run:
 pack
 ```
 
+You can exclude filetypes with the `-e` flag, e.g. `pack -e .log,.tmp` to exclude log and temporary files.
+
+You can specifiy the directory to pack, e.g. `pack /path/to/your/project` to pack a specific directory. If no directory is specified, it defaults to the current working directory.
+
 ## What it does
 
 - The tool generates a llm_context.md file in your current directory.

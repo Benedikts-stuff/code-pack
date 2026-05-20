@@ -28,10 +28,10 @@ Simply navigate to any of your project directories in your terminal and run:
 pack
 ```
 
-You can exclude file types with the `-e` flag, e.g. `pack -e .log,.tmp` to exclude
+  You can exclude file types with the `-e` flag, e.g. `pack -e log tmp` to only include
 log and temporary files.
 
-You can specify the directory to pack, e.g. `pack /path/to/your/project` to pack
+  You can specify the directory to pack, e.g. `pack /path/to/your/project` to pack
 a specific directory. If no directory is specified, it defaults to the current
 working directory.
 

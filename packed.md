@@ -4,6 +4,8 @@
 
 ```text
 code-pack/
+├── [test]
+│   └── +page.svelte
 ├── pack.py
 └── README.md
 ```
@@ -13,7 +15,7 @@ code-pack/
 ### File: `README.md`
 
 ````md
-## Installation (macOS)
+# Installation (macOS)
 
 **1. Install dependencies**
 Make sure you are in the project directory and install the required packages:
@@ -43,15 +45,20 @@ Simply navigate to any of your project directories in your terminal and run:
 pack
 ```
 
-You can exclude filetypes with the `-e` flag, e.g. `pack -e .log,.tmp` to exclude log and temporary files.
+  You can exclude file types with the `-e` flag, e.g. `pack -e log tmp` to only include
+log and temporary files.
 
-You can specifiy the directory to pack, e.g. `pack /path/to/your/project` to pack a specific directory. If no directory is specified, it defaults to the current working directory.
+  You can specify the directory to pack, e.g. `pack /path/to/your/project` to pack
+a specific directory. If no directory is specified, it defaults to the current
+working directory.
 
 ## What it does
 
-- The tool generates a llm_context.md file in your current directory.
-- It automatically builds a clean ASCII file tree and appends all file contents, respecting your .gitignore rules at every directory level.
-- The entire output is instantly copied to your clipboard, e.g. for usage with Chat based LLMs.
+- The tool generates a packed.md file in your current directory.
+- It automatically builds a clean ASCII file tree and appends all file contents,
+respecting your .gitignore rules at every directory level.
+- The entire output is instantly copied to your clipboard,
+e.g. for usage with Chat based LLMs.
 
 ````
 
@@ -265,5 +272,11 @@ if __name__ == "__main__":
 
     print("Generating")
     generate_markdown(args.dir, OUTPUT_FILENAME, allowed_extensions)
+
+````
+
+### File: `[test]/+page.svelte`
+
+````svelte
 
 ````

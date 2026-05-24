@@ -68,7 +68,7 @@ def get_gitignore_spec(dir_path: Path):
 
 
 def ignore(path: Path, base_dir: Path, allowed_exts=None) -> bool:
-    if path.name.startswith("."):
+    if path.name.startswith(".") and path.name not in [".", ".."]:
         return True
     if "packed.md" == path.name:
         return True

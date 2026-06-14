@@ -130,6 +130,12 @@ def copy_to_clipboard(text: str) -> bool:
     try:
         if sys.platform == "darwin":
             subprocess.run("pbcopy", text=True, input=text, check=True)
+        elif sys.platform == "linux" or sys.platform == "linux2":
+            subprocess.run(
+                ["xclip", "-selection", "clipboard"], text=True, input=text, check=True
+            )
+        elif sys.platform == "win32":
+            subprocess.run("clip", text=True, input=text, check=True)
         return True
     except Exception as e:
         print(f"Could not copy: {e}")
@@ -159,6 +165,15 @@ def generate_markdown(base_dir_path: str, output_file: str, allowed_exts=None) -
         for file in sorted(files):
             file_path = root_path / file
             relative_path = ""
+            file_size_kb = file_path.stat().st_size / 1024
+
+            if file_size_kb > 500:
+                content_lines.append(f"### File: `{relative_path}`\n")
+                content_lines.append(
+                    f"[File omitted: Exceeds size limit of 500KB ({file_size_kb:.1f} KB)]\n"
+                )
+                continue
+
             if not ignore(file_path, base_dir, allowed_exts):
                 try:
                     relative_path = file_path.relative_to(base_dir)

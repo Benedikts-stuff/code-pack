@@ -50,6 +50,8 @@ log and temporary files.
 a specific directory. If no directory is specified, it defaults to the current
 working directory.
 
+Note: With Windows you must add the path to the dist folder to the PATH environment variable to run the pack command.
+
 ## What it does
 
 - The tool generates a packed.md file in your current directory.
@@ -184,7 +186,9 @@ def generate_filetree(
         tree_str += f"{prefix}{pointer}{path.name}\n"
         if path.is_dir():
             extension = "│   " if pointer == "├── " else "    "
-            tree_str += generate_filetree(path, base_dir, prefix=prefix + extension)
+            tree_str += generate_filetree(
+                path, base_dir, prefix=prefix + extension, allowed_exts=allowed_exts
+            )
 
     return tree_str
 

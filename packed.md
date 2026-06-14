@@ -4,8 +4,6 @@
 
 ```text
 code-pack/
-├── [test]
-│   └── +page.svelte
 ├── pack.py
 └── README.md
 ```
@@ -135,7 +133,7 @@ def get_gitignore_spec(dir_path: Path):
 
 
 def ignore(path: Path, base_dir: Path, allowed_exts=None) -> bool:
-    if path.name.startswith("."):
+    if path.name.startswith(".") and path.name not in [".", ".."]:
         return True
     if "packed.md" == path.name:
         return True
@@ -272,11 +270,5 @@ if __name__ == "__main__":
 
     print("Generating")
     generate_markdown(args.dir, OUTPUT_FILENAME, allowed_extensions)
-
-````
-
-### File: `[test]/+page.svelte`
-
-````svelte
 
 ````
